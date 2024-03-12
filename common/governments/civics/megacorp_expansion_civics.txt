@@ -1,0 +1,116 @@
+civic_publicly_traded = {
+	potential = {
+		OR = {
+			authority = { value = auth_corporate }
+			civics = { value = civic_galactic_sovereign_megacorp }
+		}
+	}
+	possible = {
+		civics = { NOT = { value = civic_parliamentary_system } }
+	}
+	random_weight = { base = @civic_default_random_weight }
+	ai_weight = { 
+		base = 0
+	}
+	modifier = {
+		pop_factions_produces_mult = 0.40
+	}
+
+	description = "civic_publicly_traded_effects"
+}
+
+civic_mechanized_labor = {
+	potential = {
+		OR = {
+			authority = { value = auth_corporate }
+			civics = { value = civic_galactic_sovereign_megacorp }
+		}
+	}
+	possible = {
+		ethics = {
+			OR = {
+				text = civic_tooltip_materialist
+				value = ethic_materialist
+				value = ethic_fanatic_materialist
+			}
+		}
+		civics = { NOT = { value = civic_permanent_employment } }
+	}
+	random_weight = { base = @civic_default_random_weight }
+	ai_weight = { 
+		base = @ai_civic_default_base_weight 
+		modifier = {
+			factor = @ai_civic_personality_match_factor
+			OR = {
+				has_ai_personality = ruthless_capitalists
+				has_ai_personality = erudite_explorers
+				has_ai_personality = slaving_despots
+				has_ai_personality = decadent_hierarchy
+			}
+		}
+		modifier = {
+			factor = @ai_civic_personality_forbid_factor
+			OR = {
+				has_ai_personality = spiritual_seekers
+				has_ai_personality = evangelising_zealots
+			}
+		}
+	}
+	modifier = {
+		planet_jobs_robotic_produces_mult = 0.10
+	}
+
+#	on_enabled = {
+#		if = {
+#			limit = {
+#				NOT = { has_technology = tech_powered_exoskeletons }
+#			}
+#			add_research_option = tech_powered_exoskeletons
+#		}
+#		if = {
+#			limit = {
+#				has_technology = tech_powered_exoskeletons
+#				NOT = { has_technology = tech_robotic_workers}
+#			}
+#			add_research_option = tech_robotic_workers
+#		}
+#	}
+
+	description = "civic_mechanized_labor_effects"
+}
+
+civic_cash_crops = {
+	potential = {
+		OR = {
+			authority = { value = auth_corporate }
+			civics = { value = civic_galactic_sovereign_megacorp }
+		}
+	}
+	possible = {
+		civics = { 
+			NOR = { 
+				value = civic_agrarian_idyll
+				value = civic_corporate_anglers
+				value = civic_anglers
+			}
+		}
+		origin = {
+			NOR = {
+				value = origin_post_apocalyptic
+				value = origin_shattered_ring
+				value = origin_void_dwellers
+				value = origin_subterranean
+			}
+		}
+	}
+	random_weight = { base = @civic_default_random_weight }
+	ai_weight = { 
+		base = 0
+	}
+	modifier = {
+		planet_farmers_food_produces_add = -1
+		planet_farmers_consumer_goods_produces_add = 1
+	}
+	description = "civic_cash_crops_effects"
+}
+	

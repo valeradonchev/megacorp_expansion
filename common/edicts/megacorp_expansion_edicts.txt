@@ -1,0 +1,30 @@
+@Edict1Cost = 10
+
+cash_crop_subsidies = {
+	length = @EdictPerpetual
+	icon = "GFX_edict_type_policy"
+
+	resources = {
+		category = edicts
+		cost = {
+			unity = @Edict1Cost
+			multiplier = value:edict_size_effect
+		}
+		upkeep = {
+			unity = @Edict1Cost
+			multiplier = value:edict_size_effect
+		}
+	}
+
+	potential = {
+		has_valid_civic = civic_cash_crops
+	}
+
+	modifier = {
+		planet_farmers_food_produces_add = -1
+		planet_farmers_consumer_goods_produces_add = 1
+	}
+	ai_weight = {
+		weight = 0
+	}
+}

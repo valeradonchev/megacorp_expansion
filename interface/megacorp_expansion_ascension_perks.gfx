@@ -1,0 +1,17 @@
+spriteTypes = {
+
+	spriteType = {
+		name = "GFX_ap_commercial_symbiosis"
+		texturefile = "gfx/interface/icons/ascension_perks/ap_commercial_symbiosis.dds"
+		alwaystransparent = yes
+	}
+}
+
+spriteTypes = {
+
+	spriteType = {
+		name = "GFX_ap_commercial_parasite"
+		texturefile = "gfx/interface/icons/ascension_perks/ap_commercial_symbiosis.dds"
+		alwaystransparent = yes
+	}
+}

@@ -1,0 +1,45 @@
+councilor_publicly_traded = {
+	leader_class = { scientist official }
+	is_leader_possible = {
+		OR = {
+			leader_class = scientist
+			leader_class = official
+		}
+	}
+	civic = civic_publicly_traded
+	modifier = {
+		pop_government_ethic_attraction = 0.05
+		pop_ethics_shift_speed_mult = 0.05
+	}
+	ai_hiring_weight = {
+		inline_script = councilor_leader_weights
+	}
+}
+
+councilor_mechanized_labor = {
+	leader_class = { official }
+	is_leader_possible = {
+		leader_class = official
+	}
+	civic = civic_mechanized_labor
+	modifier = {
+		planet_pop_assembly_mult = 0.01
+	}
+	ai_hiring_weight = {
+		inline_script = councilor_leader_weights
+	}
+}
+
+councilor_cash_crops = {
+	leader_class = { official }
+	is_leader_possible = {
+		leader_class = official
+	}
+	civic = civic_cash_crops
+	modifier = {
+		pop_lifestyle_trade_mult = 0.1
+	}
+	ai_hiring_weight = {
+		inline_script = councilor_leader_weights
+	}
+}

@@ -1,0 +1,84 @@
+﻿l_english:
+
+civic_publicly_traded:0 "Publicly Traded"
+civic_publicly_traded_desc:0 "This Megacorporation has a history of attracting wealthy investors to fund its rapid growth. So long as the investors trust that there is a future for the company, the backing continues."
+civic_publicly_traded_effects:0 "Factions will form in your empire shortly after the game starts. Instead of £unity£ §Y$UNITY$§!, Factions produce §Y2§! £trade_value£ §Y$TRADE_VALUE$§! for every §Y1§! £unity£ §Y$UNITY$§!."
+
+councilor_publicly_traded:0 "Chief of Treasury"
+councilor_publicly_traded_female:0 "$councilor_publicly_traded$"
+councilor_publicly_traded_desc:0 "The $TITLE$ manipulates regulations to encourage more investments by our employees."
+
+civic_mechanized_labor:0 "Mechanized Labor"
+civic_mechanized_labor_desc:0 "Machines don't tire, don't get payed, and don't complain, so this Megacorporation is always looking for ways to augment it's labor force with robots."
+civic_mechanized_labor_effects:0 "- $r_trade_value$ from £job_roboticist£ §Y$job_roboticist_plural$§!: §G+4§!\n- Can build £building£ §Y$building_corporate_robots$§! $BRANCH_OFFICE_BUILDING$ \n- Guranteed Research Option: £engineering_research£ §Y$tech_powered_exoskeletons$§! \n- Increased Draw Weight: £engineering_research£ §Y$tech_robotic_workers$§! "
+
+councilor_mechanized_labor:0 "Factory Inspectorate Head"
+councilor_mechanized_labor_female:0 "$councilor_mechanized_labor$"
+councilor_mechanized_labor_desc:0 "The $TITLE$ ensures factories are operating optimaly."
+
+building_private_mining_consortium_effect_desc: "£job_miner£ [Root.MineralsProducer] produces §G+1§! $r_minerals$ for the branch office and §G+1§! £trade_value£ §Y$TRADE_VALUE$§! for the planet."
+building_food_conglomerate_effect_desc: "£job_farmer£ [Root.FoodProducer] produces §G+1§! $r_food$ for the branch office and §G+1§! £trade_value£ §Y$TRADE_VALUE$§! for the planet."
+building_military_contractors_effect_desc: "£job_soldier£ [planet.owner.GetSoldier] produces §G+1§! £mod_country_naval_cap_add£ §Y$MOD_COUNTRY_NAVAL_CAP_ADD$§! for the branch office and §G+1§! £trade_value£ §Y$TRADE_VALUE$§! for the planet."
+building_virtual_entertainment_studios_effect_desc: "[Root.ConsumerGoodsProducerIcon] [Root.ConsumerGoodsProducer] produces §G+.5§! $r_consumer_goods$ for the branch office and §G+1§! £trade_value£ §Y$TRADE_VALUE$§! for the planet."
+building_private_shipyards_effect_desc: "£job_foundry£ [Root.AlloysProducer] produces §G+.25§! $r_alloys$ for the branch office and §G+1§! £trade_value£ §Y$TRADE_VALUE$§! for the planet."
+building_public_relations_office_effect_desc: "[planet.owner.GetAdministratorPluralWithIcon] and £job_politician£ $job_politician_plural$ produce §G+.5§! $r_unity$ for the branch office and §G+1§! £trade_value£ §Y$TRADE_VALUE$§! for the planet."
+building_private_research_initiative_effect_desc: "[Root.ResearchProducerIcon] [Root.ResearchProducer] produces §G+.5§! $r_research$ for the branch office and §G+1§! £trade_value£ §Y$TRADE_VALUE$§! for the planet."
+
+building_corporate_robots:0 "Corporate Robotics"
+building_corporate_robots_desc:1 "A private robotic company employing local and off-world robotics specialists to provide services for a reasonable fee."
+building_corporate_robots_effect_desc: "£mod_planet_jobs_robotic_produces_mult£ Robot §I$pops_with_icon$§! produces §G+1§! $r_energy$ for the branch office."
+
+job_corporate_roboticist:0 "Corporate Roboticist"
+job_corporate_roboticist_plural:0 "Corporate Roboticists"
+job_corporate_roboticist_desc:0 "These technicians apply the latest optimizations in robotics - for a small fee."
+job_corporate_roboticist_effect_desc:0 "£job_corporate_roboticist£ $job_corporate_roboticist_plural$ boost the productivity of robots - for a small fee."
+mod_job_corporate_roboticist_add:0 "$job_corporate_roboticist$ Jobs"
+# mod_job_corporate_roboticist_per_pop:0 "§G+1§! $job_roboticist$ Job per $VALUE$ Pops"
+# mod_job_corporate_roboticist_per_pop_short:0 "\n§G+1§! £mod_job_roboticist_add£ per $VALUE$ £pop£"
+
+civic_cash_crops:0 "Designer Crops"
+civic_cash_crops_desc:0 "This Megacorporation has developed various cash crops that it sells to high-paying customers. Growing these crops take up land that would normally be used for growing staple crops."
+civic_cash_crops_effects:0 "- Hydroponics Bays produce §R-2§! $r_food$, §G+2§! $r_consumer_goods$ \n- £building£ §Y$building_food_conglomerate$§! $BRANCH_OFFICE_BUILDING$ produces $r_consumer_goods$ instead of $r_food$ \n- Enables §Y$edict_cash_crop_subsidies$§! §HEdict§!, shifting £job_farmer£ §Y$job_farmer$§! production towards $r_consumer_goods$."
+
+building_food_conglomerate_cash_crop_effect_desc: "£job_farmer£ [Root.FoodProducer] produces §G+.5§! $r_consumer_goods$ for the branch office and §G+1§! £trade_value£ §Y$TRADE_VALUE$§! for the planet."
+
+edict_cash_crop_subsidies:0 "Cash Crop Subsidies"
+edict_cash_crop_subsidies_desc:0 "By reallocating government subsidies, farmers can be encouraged to spend a greater portion of their land on growing cash crops."
+
+mod_starbase_constructions_consumer_goods_produces_mult:0 "£consumer_goods£ Consumer Goods from Starbase Constructions"
+
+councilor_cash_crops:0 "Goods Refinement Specialist"
+councilor_cash_crops_female:0 "$councilor_publicly_traded$"
+councilor_cash_crops_desc:0 "The $TITLE$ ensures all luxury crops are processed to their finest form and sold at a premium."
+
+ap_commercial_symbiosis:0 "Commercial Symbiosis"
+ap_commercial_symbiosis_desc:1 "If you know the right approach, you can sell sand in the desert! We can sell our services to Gestalt Conciousnesses by comparing them to a symbiotic relationship."
+gestalt_commercial_pacts:1 "Can propose §YCommercial Pacts§! to a §YGestalt Consciousness§! and build §YBranch Offices§! on their planets. You gain trade value from §YCommercial Pacts§! with §YGestalt Consciousness§! based on their pop count, but it is not displayed in the diplomatic action."
+BRANCH_OFFICE_GESTALT:0 "£trigger_no£ §RWe have no idea how to market our goods to a Gestalt Conciousness.§!"
+
+ap_commercial_parasite:0 "Commercial Parasitism"
+ap_commercial_parasite_desc:1 "Like a parasite puppeting its host for its own needs, so too have we learned how to control Drones for our own gain."
+gestalt_crime:1 "Can build §YBranch Offices§! on the planets of a Gestalt Conciousness."
+CRIMINAL_BRANCH_OFFICE_GESTALT:0 "£trigger_no£ §RWe have no idea how to steal from a Gestalt Conciousness.§!"
+
+building_private_mining_consortium_gestalt_effect_desc: "£job_miner£ [Root.MineralsProducer] produces §G+1§! $r_minerals$ for the branch office and §G+1§! £amenities£ §Y$amenity$§! for the planet."
+building_food_conglomerate_gestalt_effect_desc: "£job_farmer£ [Root.FoodProducer] produces §G+1§! $r_food$ for the branch office and §G+1§! £amenities£ §Y$amenity$§! for the planet."
+building_military_contractors_gestalt_effect_desc: "£job_soldier£ [planet.owner.GetSoldier] produces §G+1§! £mod_country_naval_cap_add£ §Y$MOD_COUNTRY_NAVAL_CAP_ADD$§! for the branch office and §G+1§! £amenities£ §Y$amenity$§! for the planet."
+building_virtual_entertainment_studios_gestalt_effect_desc: "[Root.ConsumerGoodsProducerIcon] [Root.ConsumerGoodsProducer] produces §G+.5§! $r_consumer_goods$ for the branch office and §G+1§! £amenities£ §Y$amenity$§! for the planet."
+building_private_shipyards_gestalt_effect_desc: "£job_foundry£ [Root.AlloysProducer] produces §G+.25§! $r_alloys$ for the branch office and §G+1§! £amenities£ §Y$amenity$§! for the planet."
+building_public_relations_office_gestalt_effect_desc: "[planet.owner.GetAdministratorPluralWithIcon] produce §G+.5§! $r_unity$ for the branch office and §G+1§! £amenities£ §Y$amenity$§! for the planet."
+building_private_research_initiative_gestalt_effect_desc: "[Root.ResearchProducerIcon] [Root.ResearchProducer] produces §G+.5§! $r_research$ for the branch office and §G+1§! £amenities£ §Y$amenity$§! for the planet."
+building_food_conglomerate_cash_crop_gestalt_effect_desc: "£job_farmer£ [Root.FoodProducer] produces §G+.5§! $r_consumer_goods$ for the branch office and §G+1§! £amenities£ §Y$amenity$§! for the planet."
+building_public_relations_office_servitor_effect_desc: "[planet.owner.GetCultureWorkerPluralWithIcon] produce §G+.5§! $r_unity$ for the branch office and §G+1§! £trade_value£ §Y$TRADE_VALUE$§! for the planet."
+
+job_corporate_roboticist_gestalt:0 "Corporate Roboticist Drone"
+job_corporate_roboticist_gestalt_plural:0 "Corporate Roboticist Drones"
+job_corporate_roboticist_gestalt_desc:0 "These technician drones apply the latest optimizations in robotics - for a small fee."
+job_corporate_roboticist_gestalt_effect_desc:0 "£job_corporate_roboticist_gestalt£ $job_corporate_roboticist_gestalt_plural$ boost the productivity of robots - for a small fee."
+mod_job_corporate_roboticist_gestalt_add:0 "$job_corporate_roboticist_gestalt$ Jobs"
+
+job_healthcare_gestalt:0 "Medical Drone"
+job_healthcare_gestalt_plural:0 "Medical Drones"
+job_healthcare_gestalt_desc:0 "The concept of public healthcare is foreign to us, but it improves the lifespan of all drones."
+job_healthcare_gestalt_effect_desc:0 "£job_healthcare_gestalt£ $job_healthcare_gestalt_plural$ boost the quality of life of drones - for a small fee."
+mod_job_healthcare_gestalt_add:0 "$job_healthcare_gestalt$ Jobs"

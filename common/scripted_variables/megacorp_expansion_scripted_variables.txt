@@ -1,0 +1,13 @@
+@faction_base_trade = 0.60	#2 * @faction_base_unity
+@faction_half_trade = 0.30	#.5 * @faction_base_trade
+@faction_quarter_trade = 0.15	#.25 * @faction_base_trade
+@faction_fifth_trade = 0.12	#.2 * @faction_base_trade
+@faction_coop_trade = 0.18	#.3 * @faction_base_trade
+
+@gestalt_commercial_base = 0.125	# 1.25 trade value * 10%
+@gestalt_commercial_half = 0.0625	# .5 * @gestalt_commercial_base
+@gestalt_commercial_quarter = 0.03125
+@gestalt_commercial_fifth = 0.25
+@gestalt_commercial_coop = 0.0375
+
+@gestalt_trade_base = 1.25

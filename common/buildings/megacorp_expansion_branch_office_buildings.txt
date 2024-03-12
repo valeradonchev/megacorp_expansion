@@ -1,0 +1,1540 @@
+###########################
+# Branch Office Buildings #
+###########################
+
+## N.B.: ai_weight is still used for branch offices!
+
+## REGULAR MEGACORP ##
+building_private_mining_consortium = {
+	base_buildtime = @b1_time
+	base_cap_amount = 1
+
+	owner_type = corporate
+
+	category = resource
+
+	potential = {
+		has_branch_office = yes
+		branch_office_owner = {
+			is_ai = no
+			is_criminal_syndicate = no
+		}
+		is_artificial = no
+		NOR = {
+			is_planet_class = pc_hive
+			is_planet_class = pc_machine
+			is_planet_class = pc_city
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+			}
+		}
+		modifier = {
+			job_miner_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = yes
+			}
+		}
+		modifier = {
+			job_mining_drone_add = 1
+		}
+	}
+
+	on_built = {
+		planet = {
+			set_planet_flag = has_megacorp_mine
+		}
+	}
+
+	on_destroy = {
+		planet = {
+			remove_planet_flag = has_megacorp_mine
+		}
+	}
+
+	resources = {
+		category = planet_branch_office_buildings
+		cost = {
+			minerals = 500
+		}
+		produces = {
+			minerals = 1
+			mult = value:branch_miners
+		}
+		upkeep = {
+			energy = 2
+		}
+	}
+
+	ai_weight = {
+		factor = 1
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+			}
+		}
+		text = building_private_mining_consortium_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_gestalt = yes
+			}
+		}
+		text = building_private_mining_consortium_gestalt_effect_desc
+	}
+}
+
+building_food_conglomerate = {
+	base_buildtime = @b1_time
+	base_cap_amount = 1
+
+	owner_type = corporate
+
+	category = resource
+
+	potential = {
+		has_branch_office = yes
+		branch_office_owner = {
+			is_ai = no
+			is_criminal_syndicate = no
+		}
+		NOR = {
+			is_planet_class = pc_hive
+			is_planet_class = pc_machine
+			is_planet_class = pc_relic
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+				OR = {
+					is_anglers_empire = no
+					AND = {
+						is_anglers_empire = yes
+						PREV = { planet = { is_wet = no } }
+					}
+				}
+			}
+		}
+		modifier = {
+			job_farmer_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_anglers_empire = yes
+				PREV = { planet = { is_wet = yes } }
+			}
+		}
+		modifier = {
+			job_angler_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = yes
+			}
+		}
+		modifier = {
+			job_agri_drone_add = 1
+		}
+	}
+
+	on_built = {
+		planet = {
+			set_planet_flag = has_megacorp_farm
+		}
+	}
+
+	on_destroy = {
+		planet = {
+			remove_planet_flag = has_megacorp_farm
+		}
+	}
+
+	resources = {
+		category = planet_branch_office_buildings
+		cost = {
+			minerals = 500
+		}
+		produces = {
+			trigger = {
+				has_branch_office = yes
+				branch_office_owner = { 
+					NOT = { has_valid_civic = civic_cash_crops }
+				}
+			}
+			food = 1
+			mult = value:branch_farmers
+		}
+		produces = {
+			trigger = {
+				has_branch_office = yes
+				branch_office_owner = { 
+					has_valid_civic = civic_cash_crops
+				}
+			}
+			consumer_goods = 0.5
+			mult = value:branch_farmers
+		}
+		upkeep = {
+			energy = 2
+		}
+	}
+
+	ai_weight = {
+		factor = 1
+	}#AI has many other sources for this resource
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_gestalt = no }
+			has_branch_office = yes
+			branch_office_owner = { 
+				NOT = { has_valid_civic = civic_cash_crops }
+			}
+		}
+		text = building_food_conglomerate_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_gestalt = no }
+			has_branch_office = yes
+			branch_office_owner = { 
+				has_valid_civic = civic_cash_crops
+			}
+		}
+		text = building_food_conglomerate_cash_crop_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_gestalt = yes }
+			has_branch_office = yes
+			branch_office_owner = { 
+				NOT = { has_valid_civic = civic_cash_crops }
+			}
+		}
+		text = building_food_conglomerate_gestalt_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_gestalt = yes }
+			has_branch_office = yes
+			branch_office_owner = { 
+				has_valid_civic = civic_cash_crops
+			}
+		}
+		text = building_food_conglomerate_cash_crop_gestalt_effect_desc
+	}
+}
+
+building_virtual_entertainment_studios = {
+	base_buildtime = @b1_time
+	base_cap_amount = 1
+
+	owner_type = corporate
+
+	category = manufacturing
+
+	potential = {
+		has_branch_office = yes
+		branch_office_owner = { is_criminal_syndicate = no }
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = no }
+		}
+		modifier = {
+			job_clerk_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = yes
+			}
+		}
+		modifier = {
+			job_maintenance_drone_add = 2
+		}
+	}
+
+	on_built = {
+		planet = {
+			set_planet_flag = has_megacorp_factory
+		}
+	}
+
+	on_destroy = {
+		planet = {
+			remove_planet_flag = has_megacorp_factory
+		}
+	}
+
+	resources = {
+		category = planet_branch_office_buildings
+		cost = {
+			minerals = 500
+		}
+		produces = {
+			consumer_goods = 0.5
+			mult = value:branch_artisans
+		}
+		upkeep = {
+			energy = 2
+		}
+	}
+
+	ai_weight = {
+		weight = 3
+		modifier = {
+			factor = 5
+			branch_office_owner = {
+				has_monthly_income = {
+					resource = consumer_goods
+					value < 0
+				}
+			}
+		}
+		modifier = {
+			factor = 0.5
+			branch_office_owner = {
+				has_monthly_income = {
+					resource = consumer_goods
+					value >= 10
+				}
+			}
+		}
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+			}
+		}
+		text = building_virtual_entertainment_studios_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_gestalt = yes
+			}
+		}
+		text = building_virtual_entertainment_studios_gestalt_effect_desc
+	}
+}
+
+building_private_shipyards = {
+	base_buildtime = @b1_time
+	base_cap_amount = 1
+
+	owner_type = corporate
+
+	category = manufacturing
+
+	potential = {
+		has_branch_office = yes
+		branch_office_owner = {
+			is_ai = no
+			is_criminal_syndicate = no
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+			}
+		}
+		modifier = {
+			job_clerk_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = yes
+			}
+		}
+		modifier = {
+			job_maintenance_drone_add = 2
+		}
+	}
+
+	on_built = {
+		planet = {
+			set_planet_flag = has_megacorp_foundry
+		}
+	}
+
+	on_destroy = {
+		planet = {
+			remove_planet_flag = has_megacorp_foundry
+		}
+	}
+
+	resources = {
+		category = planet_branch_office_buildings
+		cost = {
+			minerals = 500
+		}
+		produces = {
+			alloys = 0.25
+			mult = value:branch_metallurgists
+		}
+		upkeep = {
+			energy = 2
+		}
+	}
+
+	ai_weight = {
+		weight = 1
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+			}
+		}
+		text = building_private_shipyards_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_gestalt = yes
+			}
+		}
+		text = building_private_shipyards_gestalt_effect_desc
+	}
+}
+
+building_military_contractors = {
+	base_buildtime = @b1_time
+	base_cap_amount = 1
+
+	owner_type = corporate
+
+	category = army
+
+	potential = {
+		has_branch_office = yes
+		branch_office_owner = {
+			is_ai = no
+			is_criminal_syndicate = no
+		}
+	}
+
+	triggered_country_modifier = {
+		potential = {
+			always = yes
+		}
+		country_naval_cap_add = 1
+		mult = value:branch_soldiers
+	}
+
+	army_modifier = {
+		army_starting_experience_add = 100
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+			}
+		}
+		modifier = {
+			job_soldier_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = yes
+			}
+		}
+		modifier = {
+			job_warrior_drone_add = 1
+		}
+	}
+
+	on_built = {
+		planet = {
+			set_planet_flag = has_megacorp_military
+		}
+	}
+
+	on_destroy = {
+		planet = {
+			remove_planet_flag = has_megacorp_military
+		}
+	}
+
+	resources = {
+		category = planet_branch_office_buildings
+		cost = {
+			minerals = 500
+		}
+		upkeep = {
+			energy = 2
+		}
+	}
+
+	ai_weight = {
+		factor = 10
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+			}
+		}
+		text = building_military_contractors_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_gestalt = yes
+			}
+		}
+		text = building_military_contractors_gestalt_effect_desc
+	}
+}
+
+building_public_relations_office = {
+	base_buildtime = @b2_time
+	base_cap_amount = 1
+
+	owner_type = corporate
+
+	category = unity
+
+	potential = {
+		has_branch_office = yes
+		branch_office_owner = { is_criminal_syndicate = no }
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+			}
+		}
+		modifier = {
+			job_clerk_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = yes
+			}
+		}
+		modifier = {
+			job_maintenance_drone_add = 2
+		}
+	}
+
+	on_built = {
+		planet = {
+			set_planet_flag = has_megacorp_bureaucracy
+		}
+	}
+
+	on_destroy = {
+		planet = {
+			remove_planet_flag = has_megacorp_bureaucracy
+		}
+	}
+
+	resources = {
+		category = planet_branch_office_buildings
+		cost = {
+			minerals = @b3_minerals
+		}
+		produces = {
+			unity = 0.5
+			mult = value:branch_bureaucrats
+		}
+		upkeep = {
+			energy = 3
+		}
+	}
+
+	ai_weight = {
+		weight = 2
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+			}
+		}
+		text = building_public_relations_office_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_gestalt = yes
+				NOT = { has_valid_civic = civic_machine_servitor }
+			}
+		}
+		text = building_public_relations_office_gestalt_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_gestalt = yes
+				has_valid_civic = civic_machine_servitor
+			}
+		}
+		text = building_public_relations_office_servitor_effect_desc
+	}
+}
+
+building_private_research_initiative = {
+	base_buildtime = @b2_time
+	base_cap_amount = 1
+
+	owner_type = corporate
+
+	category = research
+
+	potential = {
+		has_branch_office = yes
+		branch_office_owner = { is_criminal_syndicate = no }
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+			}
+		}
+		modifier = {
+			job_clerk_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = yes
+			}
+		}
+		modifier = {
+			job_maintenance_drone_add = 2
+		}
+	}
+
+	on_built = {
+		planet = {
+			set_planet_flag = has_megacorp_research
+		}
+	}
+
+	on_destroy = {
+		planet = {
+			remove_planet_flag = has_megacorp_research
+		}
+	}
+
+	resources = {
+		category = planet_branch_office_buildings
+		cost = {
+			minerals = @b3_minerals
+		}
+		produces = {
+			physics_research = 0.5
+			mult = value:branch_researchers
+			engineering_research = 0.5
+			mult = value:branch_researchers
+			society_research = 0.5
+			mult = value:branch_researchers
+		}
+		upkeep = {
+			energy = 3
+		}
+	}
+
+	ai_weight = {
+		weight = 10
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+			}
+		}
+		text = building_private_research_initiative_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_gestalt = yes
+			}
+		}
+		text = building_private_research_initiative_gestalt_effect_desc
+	}
+}
+
+building_commercial_forum = {
+	base_buildtime = @b2_time
+	base_cap_amount = 1
+
+	owner_type = corporate
+
+	category = government
+
+	potential = {
+		has_branch_office = yes
+		branch_office_owner = { is_criminal_syndicate = no }
+	}
+
+	planet_modifier = {
+		branch_office_value_mult = 0.25
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+			}
+		}
+		modifier = {
+			job_merchant_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = yes
+			}
+		}
+		modifier = {
+			job_evaluator_add = 2
+		}
+	}
+
+	resources = {
+		category = planet_branch_office_buildings
+		cost = {
+			minerals = @b3_minerals
+		}
+		upkeep = {
+			energy = 3
+		}
+	}
+
+	ai_weight = {
+		weight = 50
+	}
+}
+
+building_corporate_embassy = {
+	base_buildtime = @b2_time
+	base_cap_amount = 1
+
+	owner_type = corporate
+
+	category = government
+
+	potential = {
+		has_branch_office = yes
+		branch_office_owner = { is_criminal_syndicate = no }
+	}
+
+	allow = {
+		custom_tooltip = {
+			fail_text = "requires_building_major_capital"
+			OR = {
+				has_building = building_major_capital
+				has_building = building_system_capital
+				has_building = building_imperial_capital
+				has_building = building_machine_major_capital
+				has_building = building_machine_system_capital
+				has_building = building_hive_major_capital
+				has_building = building_imperial_machine_capital
+				has_building = building_imperial_hive_capital
+			}
+		}
+	}
+
+	prerequisites = {
+		"tech_xeno_diplomacy"
+	}
+
+	show_tech_unlock_if = {
+		is_megacorp = yes
+		is_criminal_syndicate = no
+	}
+
+	country_modifier = {
+		diplo_weight_economy_mult = 0.05
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+			}
+		}
+		modifier = {
+			job_clerk_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = yes
+			}
+		}
+		modifier = {
+			job_maintenance_drone_add = 2
+		}
+	}
+
+	resources = {
+		category = planet_branch_office_buildings
+		cost = {
+			minerals = @b3_minerals
+		}
+		upkeep = {
+			energy = 3
+		}
+	}
+
+	ai_weight = {
+		weight = 50
+		modifier = {
+			factor = 10
+			branch_office_owner = {
+				is_galactic_community_member = yes
+			}
+		}
+	}
+}
+
+## CRIME MEGACORP ##
+building_bio_reprocessing_facilities = {
+	base_buildtime = @b1_time
+
+	owner_type = corporate
+
+	category = resource
+
+	potential = {
+		has_branch_office = yes
+		branch_office_owner = {
+			is_ai = no
+			is_criminal_syndicate = yes
+		}
+		NOR = {
+			is_planet_class = pc_hive
+			is_planet_class = pc_machine
+			is_planet_class = pc_relic
+		}
+	}
+
+	planet_modifier = {
+		planet_crime_add = 25
+		trade_value_add = 5
+	}
+	triggered_planet_modifier = {
+		potential = {
+			branch_office_owner = { has_valid_civic = civic_cash_crops }
+		}
+		planet_crime_add = 15
+	}
+
+	resources = {
+		category = planet_branch_office_buildings
+		cost = {
+			minerals = 500
+		}
+		produces = {
+			trigger = {
+				has_branch_office = yes
+				branch_office_owner = { 
+					NOT = { has_valid_civic = civic_cash_crops }
+				}
+			}
+			food = 10
+		}
+		produces = {
+			trigger = {
+				has_branch_office = yes
+				branch_office_owner = { 
+					has_valid_civic = civic_cash_crops
+				}
+			}
+			consumer_goods = 5
+		}
+		upkeep = {
+			energy = 2
+		}
+	}
+
+	ai_weight = {
+		factor = 1
+	}
+}
+
+building_pirate_haven = {
+	base_buildtime = @b1_time
+
+	owner_type = corporate
+
+	category = army
+
+	potential = {
+		has_branch_office = yes
+		branch_office_owner = {
+			is_ai = no
+			is_criminal_syndicate = yes
+		}
+	}
+
+	country_modifier = {
+		country_naval_cap_add = 10
+	}
+
+	planet_modifier = {
+		planet_crime_add = 40
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+			}
+		}
+		modifier = {
+			job_soldier_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = yes
+			}
+		}
+		modifier = {
+			job_warrior_drone_add = 1
+		}
+	}
+
+	army_modifier = {
+		army_starting_experience_add = 100
+	}
+
+	resources = {
+		category = planet_branch_office_buildings
+		cost = {
+			minerals = 500
+		}
+		upkeep = {
+			energy = 2
+		}
+	}
+
+	ai_weight = {
+		factor = 15
+	}
+}
+
+building_syndicate_outreach_office = {
+	base_buildtime = @b2_time
+	base_cap_amount = 1
+
+	owner_type = corporate
+
+	category = government
+
+	potential = {
+		has_branch_office = yes
+		branch_office_owner = { is_criminal_syndicate = yes }
+	}
+
+	planet_modifier = {
+		planet_crime_add = 40
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+			}
+		}
+		modifier = {
+			job_clerk_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = yes
+			}
+		}
+		modifier = {
+			job_maintenance_drone_add = 2
+		}
+	}
+
+	resources = {
+		category = planet_branch_office_buildings
+		cost = {
+			minerals = @b3_minerals
+		}
+		produces = {
+			unity = 6
+		}
+		upkeep = {
+			energy = 2
+		}
+	}
+
+	ai_weight = {
+		weight = 5
+	}
+}
+
+building_illicit_research_labs = {
+	base_buildtime = @b2_time
+	base_cap_amount = 1
+
+	owner_type = corporate
+
+	category = research
+
+	potential = {
+		has_branch_office = yes
+		branch_office_owner = { is_criminal_syndicate = yes }
+	}
+
+	planet_modifier = {
+		planet_crime_add = 40
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+			}
+		}
+		modifier = {
+			job_clerk_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = yes
+			}
+		}
+		modifier = {
+			job_maintenance_drone_add = 2
+		}
+	}
+
+	resources = {
+		category = planet_branch_office_buildings
+		cost = {
+			minerals = @b3_minerals
+		}
+		produces = {
+			physics_research = 6
+			engineering_research = 6
+			society_research = 6
+		}
+		upkeep = {
+			energy = 3
+		}
+	}
+
+	ai_weight = {
+		weight = 10
+
+	}
+}
+
+building_smuggling_rings = {
+	base_buildtime = @b2_time
+	base_cap_amount = 1
+
+	owner_type = corporate
+
+	category = government
+
+	potential = {
+		has_branch_office = yes
+		branch_office_owner = { is_criminal_syndicate = yes }
+	}
+
+	planet_modifier = {
+		planet_crime_add = 50
+		branch_office_value_mult = 0.25
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+			}
+		}
+		modifier = {
+			job_merchant_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = yes
+			}
+		}
+		modifier = {
+			job_evaluator_add = 2
+		}
+	}
+
+	resources = {
+		category = planet_branch_office_buildings
+		cost = {
+			minerals = @b3_minerals
+		}
+		upkeep = {
+			energy = 3
+		}
+	}
+
+	ai_weight = {
+		weight = 100
+	}
+}
+
+building_disinformation_center = {
+	base_buildtime = @b2_time
+	base_cap_amount = 1
+
+	owner_type = corporate
+
+	category = government
+
+	potential = {
+		has_branch_office = yes
+		branch_office_owner = { is_criminal_syndicate = yes }
+	}
+
+	allow = {
+		custom_tooltip = {
+			fail_text = "requires_building_major_capital"
+			OR = {
+				has_building = building_major_capital
+				has_building = building_system_capital
+				has_building = building_imperial_capital
+				has_building = building_machine_major_capital
+				has_building = building_machine_system_capital
+				has_building = building_hive_major_capital
+				has_building = building_imperial_machine_capital
+				has_building = building_imperial_hive_capital
+			}
+		}
+	}
+
+	prerequisites = {
+		"tech_xeno_diplomacy"
+	}
+
+	show_tech_unlock_if = {
+		is_megacorp = yes
+		is_criminal_syndicate = yes
+	}
+
+	country_modifier = {
+		spy_network_levels_add = 5
+	}
+
+	planet_modifier = {
+		planet_crime_add = 40
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+			}
+		}
+		modifier = {
+			pop_government_ethic_attraction = -0.25
+			job_clerk_add = 2
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = yes
+			}
+		}
+		modifier = {
+			job_maintenance_drone_add = 2
+		}
+	}
+
+	resources = {
+		category = planet_branch_office_buildings
+		cost = {
+			minerals = @b3_minerals
+		}
+		upkeep = {
+			energy = 3
+		}
+	}
+
+	ai_weight = {
+		weight = 50
+	}
+}
+
+building_subversive_shrine = {
+	base_buildtime = @b1_time
+	base_cap_amount = 1
+	owner_type = corporate
+
+	category = unity
+
+	potential = {
+		has_branch_office = yes
+		branch_office_owner = {
+			has_valid_civic = civic_gospel_of_the_masses
+			is_criminal_syndicate = yes
+		}
+		exists = owner
+		owner = {
+			is_gestalt = no
+		}
+	}
+	planet_modifier = {
+		job_preacher_add = 2
+		pop_ethic_spiritualist_attraction_mult = 0.25
+		planet_crime_add = 25
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			branch_office_owner = {
+				has_councilor = { COUNCILOR = "councilor_gospel_of_the_masses" }
+			}
+		}
+		pop_ethics_shift_speed_mult = 0.05
+		mult = value:councilor_level|TYPE|councilor_gospel_of_the_masses|
+	}
+
+	resources = {
+		category = planet_branch_office_buildings
+		cost = {
+			minerals = 500
+		}
+		upkeep = {
+			energy = 2
+		}
+	}
+	ai_weight = {
+		weight = 250
+	}
+}
+
+## GOSPEL MEGACORP ##
+
+building_temple_of_prosperity = {
+	base_buildtime = @b1_time
+	base_cap_amount = 1
+
+	owner_type = corporate
+
+	category = unity
+
+	potential = {
+		has_branch_office = yes
+		branch_office_owner = {
+			has_valid_civic = civic_gospel_of_the_masses
+			is_criminal_syndicate = no
+		}
+		exists = owner
+		owner = {
+			is_gestalt = no
+		}
+	}
+
+	planet_modifier = {
+		job_preacher_add = 2
+		pop_ethic_spiritualist_attraction_mult = 0.5
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			branch_office_owner = {
+				has_councilor = { COUNCILOR = "councilor_gospel_of_the_masses" }
+			}
+		}
+		pop_ethics_shift_speed_mult = 0.05
+		mult = value:branch_office_councilor_level|TYPE|councilor_gospel_of_the_masses|
+	}
+
+	resources = {
+		category = planet_branch_office_buildings
+		cost = {
+			minerals = 500
+		}
+		upkeep = {
+			energy = 2
+		}
+	}
+
+	ai_weight = {
+		weight = 250
+	}
+}
+
+## Pharmaceutical Companies ##
+building_corporate_clinics = {
+	base_buildtime = @b2_time
+	icon = building_corporate_clinic
+	base_cap_amount = 1
+
+	owner_type = corporate
+
+	category = resource
+
+	potential = {
+		has_branch_office = yes
+		branch_office_owner = { has_valid_civic = civic_private_healthcare_corporate }
+	}
+
+	on_built = {
+		planet = {
+			set_planet_flag = has_private_clinics
+		}
+	}
+
+	on_destroy = {
+		planet = {
+			remove_planet_flag = has_private_clinics
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			branch_office_owner = { is_criminal_syndicate = yes }
+		}
+		planet_crime_add = 20
+	}
+	planet_modifier = {
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+			}
+		}
+		modifier = {
+			job_healthcare_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = yes
+			}
+		}
+		modifier = {
+			job_healthcare_gestalt_add = 1
+		}
+	}
+
+	resources = {
+		category = planet_branch_office_buildings
+		cost = {
+			minerals = @b3_minerals
+		}
+		produces = {
+			energy = 8
+			unity = 2
+		}
+		upkeep = {
+			consumer_goods = 1
+		}
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = planet.owner
+		}
+		text = building_corporate_clinics_effect
+	}
+
+	ai_weight = {
+		weight = 120
+	}
+}
+
+## Robotics Companies ##
+building_corporate_robots = {
+	base_buildtime = @b2_time
+	icon = building_machine_assembly_complex
+	base_cap_amount = 1
+
+	owner_type = corporate
+
+	category = resource
+
+	prerequisites = { "tech_robotic_workers" }
+
+	potential = {
+		has_branch_office = yes
+		branch_office_owner = { has_valid_civic = civic_mechanized_labor }
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			branch_office_owner = { is_criminal_syndicate = yes }
+		}
+		planet_crime_add = 20
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = no }
+		}
+		modifier = {
+			job_corporate_roboticist_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = yes
+			}
+		}
+		modifier = {
+			job_corporate_roboticist_gestalt_add = 1
+		}
+	}
+
+	resources = {
+		category = planet_branch_office_buildings
+		cost = {
+			minerals = @b3_minerals
+		}
+		produces = {
+			energy = 1
+			mult = value:branch_robots
+		}
+		upkeep = {
+			energy = 2
+		}
+	}
+
+	ai_weight = {
+		weight = 120
+	}
+
+	triggered_desc = {
+		text = building_corporate_robots_effect_desc
+	}
+}

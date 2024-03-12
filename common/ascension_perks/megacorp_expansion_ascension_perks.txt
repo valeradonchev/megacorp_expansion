@@ -1,0 +1,65 @@
+ap_commercial_symbiosis = {
+	potential = {
+		NOT = {
+			has_ascension_perk = ap_commercial_symbiosis
+		}
+		is_megacorp = yes
+		is_criminal_syndicate = no
+		any_relation = {
+			has_communications = root
+			OR = {
+				is_gestalt = yes
+			}
+		}
+	}
+
+	on_enabled = {
+		custom_tooltip = "gestalt_commercial_pacts"
+	}
+
+	ai_weight = {
+		factor = 10
+		modifier = {
+			factor = 2
+			count_neighbor_country = {
+				count > 1
+				limit = {
+					is_gestalt = yes
+				}
+			}
+		}
+	}
+}
+
+ap_commercial_parasite = {
+	potential = {
+		NOT = {
+			has_ascension_perk = ap_commercial_parasite
+		}
+		is_megacorp = yes
+		is_criminal_syndicate = yes
+		any_relation = {
+			has_communications = root
+			OR = {
+				is_gestalt = yes
+			}
+		}
+	}
+
+	on_enabled = {
+		custom_tooltip = "gestalt_crime"
+	}
+
+	ai_weight = {
+		factor = 10
+		modifier = {
+			factor = 2
+			count_neighbor_country = {
+				count > 1
+				limit = {
+					is_gestalt = yes
+				}
+			}
+		}
+	}
+}

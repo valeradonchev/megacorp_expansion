@@ -1,0 +1,44 @@
+##############################
+# Totalitarian Faction
+##############################
+
+#totalitarian = {
+#	resources = {
+#		category = pop_factions
+#		produces = {	
+#			trigger = {
+#				owner = {
+#					NOT = { has_valid_civic = civic_publicly_traded }
+#				}
+#			}
+#			unity = @faction_base_unity
+#		}
+#		produces = {	
+#			trigger = {
+#				owner = {
+#					has_valid_civic = civic_publicly_traded
+#				}
+#			}
+#			energy = @faction_base_trade
+#		}
+#	}
+#	#owner.capital_scope.starbase = {
+#		triggered_station_modifier = {
+#	#		potential = {
+#	#			owner = {
+#	#				has_valid_civic = civic_publicly_traded
+#	#			}
+#	#		}
+#	#		trade_value_add = @faction_base_trade
+#	#	}
+#or
+#	owner.capital_scope = {
+#		triggered_planet_modifier = {
+#			potential = {
+#				owner = {
+#					has_valid_civic = civic_publicly_traded
+#				}
+#			}
+#			trade_value_add = @faction_base_trade
+#		}
+#}

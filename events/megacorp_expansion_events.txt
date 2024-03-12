@@ -1,0 +1,25 @@
+namespace = megacorp_expansion
+# Marks mod as installed by settign up a global flag other mods can check against.
+# Scopes:
+# root: country this: country
+country_event = {
+	id = megacorp_expansion.1	# Unique ID of the event.
+	hide_window = yes	# Hide popup window for player.
+	fire_only_once = yes	# Move to blocklist after successful firing.
+	trigger = {
+		NOT = {
+			has_global_flag = megacorp_expansion_installed		# Must NOT have megacorp_expansion_installed global flag set up.
+		}
+	}
+	immediate = {
+		set_global_flag = megacorp_expansion_installed		# Set up global flag megacorp_expansion_installed.
+		
+		if = {
+			limit = {
+				has_valid_civic = civic_mechanized_labor
+				NOT = { has_technology = tech_powered_exoskeletons }
+			}
+			add_research_option = tech_powered_exoskeletons
+		}
+	}
+}

@@ -1,0 +1,72 @@
+per_relation = {
+	# this is applied for each such relation with another country
+	# scope: this = current country, FROM : other country in the relation
+
+	commercial_pact_gestalt = {
+		trigger = {
+			has_commercial_pact = FROM
+			from = {
+				is_gestalt = yes
+			}
+		}
+
+		resources = {
+			category = commercial_pacts
+			produces = {
+				trigger = {
+					NOR = {
+						has_policy_flag = trade_conversion_consumer_goods
+						has_policy_flag = trade_conversion_unity
+						has_policy_flag = trade_conversion_trade_league
+						has_policy_flag = trade_conversion_holy_covenant
+						has_policy_flag = trade_conversion_mutual_aid
+					}
+				}
+				energy = @gestalt_commercial_base
+				mult = value:gc_pops
+			}
+			produces = {
+				trigger = {
+					has_policy_flag = trade_conversion_consumer_goods
+				}
+				energy = @gestalt_commercial_half
+				consumer_goods = @gestalt_commercial_quarter
+				mult = value:gc_pops
+			}
+			produces = {
+				trigger = {
+					has_policy_flag = trade_conversion_unity
+				}
+				energy = @gestalt_commercial_half
+				unity = @gestalt_commercial_quarter
+				mult = value:gc_pops
+			}
+			produces = {
+				trigger = {
+					has_policy_flag = trade_conversion_trade_league
+				}
+				energy = @gestalt_commercial_half
+				consumer_goods = @gestalt_commercial_fifth
+				unity = @gestalt_commercial_fifth
+				mult = value:gc_pops
+			}
+			produces = {
+				trigger = {
+					has_policy_flag = trade_conversion_holy_covenant
+				}
+				energy = @gestalt_commercial_half
+				unity = @gestalt_commercial_half
+				mult = value:gc_pops
+			}
+			produces = {
+				trigger = {
+					has_policy_flag = trade_conversion_mutual_aid
+				}
+				energy = @gestalt_commercial_coop
+				minerals = @gestalt_commercial_fifth
+				food = @gestalt_commercial_fifth
+				mult = value:gc_pops
+			}
+		}
+	}
+}
